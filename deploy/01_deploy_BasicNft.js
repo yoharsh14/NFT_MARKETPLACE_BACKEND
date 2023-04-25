@@ -1,0 +1,18 @@
+const { network } = require("hardhat");
+const { developmentChains } = require("../helper-hardhat.config");
+const {verify} = require("../utils/verify");
+module.exports = async({getNamedAccounts,deployments})=>{
+    const {deployer} = await getNamedAccounts();
+    const {deploy,log} = deployments;
+    const basicNft = await deploy("BasicNFT",{
+        from: deployer,
+        log:true,
+        args:[],
+        waitConfirmations: network.config.blockConfirmations || 1,
+    })
+    if(!developmentChains.includes(network.name)){
+        log("Verifying...")
+        verify(basicNft.address,[]);
+    }
+}
+module.exports.tags = ["nft","main"]

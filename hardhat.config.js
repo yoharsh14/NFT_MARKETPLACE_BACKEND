@@ -56,7 +56,7 @@ module.exports = {
         deployer: {
             default: 0,
         },
-        user: {
+        player: {
             defalut: 1,
         },
     },
