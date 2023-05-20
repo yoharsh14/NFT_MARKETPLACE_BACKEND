@@ -15,4 +15,4 @@ module.exports = async({getNamedAccounts,deployments})=>{
         verify(basicNft.address,[]);
     }
 }
-module.exports.tags = ["nft","main"]
+module.exports.tags = ["BasiNft","main"]
